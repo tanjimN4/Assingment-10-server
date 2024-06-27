@@ -32,9 +32,15 @@ async function run() {
     await client.connect();
 
     const itemColleation=client.db('items').collection('item')
+    const itemColleation2=client.db('items').collection('item2')
 
     app.get('/craft',async(req,res)=>{
         const cursor =itemColleation.find()
+        const result=await cursor.toArray()
+        res.send(result)
+    })
+    app.get('/craft2',async(req,res)=>{
+        const cursor =itemColleation2.find()
         const result=await cursor.toArray()
         res.send(result)
     })
