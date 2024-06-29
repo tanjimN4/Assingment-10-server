@@ -4,6 +4,9 @@ require('dotenv').config()
 const app =express()
 const port = process.env.PORT || 5000
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+Object.assign()
+util._extend(target, source);
+Object.assign(target, source);
 
 
 //middleware
@@ -15,7 +18,7 @@ app.use(express.json())
 
 
 
-const uri = "mongodb+srv://assingment-10:WGDdMazBSK695lZ3@cluster0.hblj92w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = `mongodb+srv://${process.env.DB}:${process.env.PS}@cluster0.hblj92w.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -29,7 +32,7 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    // await client.connect();
 
     const itemColleation=client.db('items').collection('item')
     const itemColleation2=client.db('items').collection('item2')
